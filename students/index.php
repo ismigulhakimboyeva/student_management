@@ -136,7 +136,7 @@ th {
                 <td><?= $item['adress'] ?></td>
                 <td>
                     <a href="#" class="view">Ko‘rish</a>
-                    <a href="#" class="delete">O‘chirish</a>
+                    <a href="delate.php?id=<?=$item['id'];?>" class="delete" onclick="return confirm('O\'chirasizmi?')">O‘chirish</a>
                 </td>
             </tr>
              <?php endforeach ?>   
