@@ -13,6 +13,7 @@
 	$students = $data->fetchAll(PDO::FETCH_ASSOC);
 
 	// $data = $conn->prepare("SELECT * FROM students")->execute()->fertchALL(PDO:: FETCH_ASSOC)
+    $cnt = 1;
 ?>
 
 
@@ -97,6 +98,16 @@ th {
 .delete:hover {
     background: darkred;
 }
+.edit {
+    background: #FFC107;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.edit:hover {
+    background:  #d1a00c;
+}
 </style>
 </head>
 
@@ -127,7 +138,7 @@ th {
             <?php foreach($students as $item):?>
                 
             <tr>
-                <td><?= $item['id'] ?></td>
+                <td><?= $cnt++; ?></td>
                 <td><?= $item['first_name'] ?></td>
                 <td><?= $item['last_name'] ?></td>
                 <td><?= $item['age'] ?></td>
@@ -136,6 +147,7 @@ th {
                 <td><?= $item['adress'] ?></td>
                 <td>
                     <a href="#" class="view">Ko‘rish</a>
+                    <a href="edit.php?id=<?=$item['id'];?>" class="edit">Tahrirlash</a>
                     <a href="delate.php?id=<?=$item['id'];?>" class="delete" onclick="return confirm('O\'chirasizmi?')">O‘chirish</a>
                 </td>
             </tr>
