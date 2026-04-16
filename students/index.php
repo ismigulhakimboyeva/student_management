@@ -146,7 +146,7 @@ th {
                 <td><?= $item['phone'] ?></td>
                 <td><?= $item['adress'] ?></td>
                 <td>
-                    <a href="#" class="view">Ko‘rish</a>
+                    <a href="show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a>
                     <a href="edit.php?id=<?=$item['id'];?>" class="edit">Tahrirlash</a>
                     <a href="delate.php?id=<?=$item['id'];?>" class="delete" onclick="return confirm('O\'chirasizmi?')">O‘chirish</a>
                 </td>
