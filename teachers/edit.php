@@ -14,7 +14,7 @@ $teachers = $data->fetch(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Teacher Form</title>
-   
+       <link rel ="stylesheet" href = "../assets/style.css">
 </head>
 <body>
 
@@ -24,11 +24,10 @@ $teachers = $data->fetch(PDO::FETCH_ASSOC);
     <form action="update.php" method="POST">
 			<input type="hidden" name="id" value="<?=$teachers['id'] ?>" >
         <input type="text" name="first_name" required value="<?=$teachers['first_name'] ?>" >
-
         <input type="text" name="last_name" required  value="<?=$teachers['last_name'] ?>">
         <input type="number" name="age" required value="<?=$teachers['age'] ?>">
         <input type="text" name="phone" required value="<?=$teachers['phone'] ?>">
-			  <input type="text" name="class_name" required value="<?=$teachers['subject'] ?>">
+		<input type="text" name="class_name" required value="<?=$teachers['subject'] ?>">
         <input type="text" name="adress" required value="<?=$teachers['experience'] ?>">
 
         <button type="submit">Saqlash</button>

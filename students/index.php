@@ -82,6 +82,14 @@ th {
     border-radius: 5px;
     text-decoration: none;
 }
+.sahifa {
+    background: rgb(203, 134, 235) ;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+} 
+
 
 .delete {
     background: red;
@@ -149,6 +157,7 @@ th {
                     <a href="show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a>
                     <a href="edit.php?id=<?=$item['id'];?>" class="edit">Tahrirlash</a>
                     <a href="delate.php?id=<?=$item['id'];?>" class="delete" onclick="return confirm('O\'chirasizmi?')">O‘chirish</a>
+                    <a href="../index.php" class="sahifa">Menu</a>
                 </td>
             </tr>
              <?php endforeach ?>   

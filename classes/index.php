@@ -1,7 +1,9 @@
 <?php
 	include '../config/db.php';
 	
-	$sql = "SELECT * FROM teachers";
+	$sql = "SELECT c.id, c.class_name,t.first_name, t.last_name  FROM classes c
+    INNER JOIN teachers t
+    On c.teacher_id = t.id";
 
 	
 	$data = $conn->prepare($sql);
@@ -10,7 +12,7 @@
 	$data->execute();
 
 	
-	$teachers = $data->fetchAll(PDO::FETCH_ASSOC);
+	$classes = $data->fetchAll(PDO::FETCH_ASSOC);
 
 	
     $cnt = 1;
@@ -20,7 +22,7 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Teacher Jadvali</title>
+    <title>Classes Jadvali</title>
 
     <style>
         body {
@@ -106,7 +108,7 @@
         .delete { background: #e74c3c; }
         .sahifa {
     background: rgb(203, 134, 235) ;
-    color: black;
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
     text-decoration: none;
@@ -121,8 +123,8 @@
 
 <!-- HEADER -->
 <div class="header">
-    <h2>Teacher Jadvali</h2>
-    <a href="create.php" class="add-btn">+ Teacher qo‘shish</a>
+    <h2>Classes Jadvali</h2>
+    <a href="create.php" class="add-btn">+ Class qo‘shish</a>
 </div>
 
 <!-- TABLE -->
@@ -131,26 +133,19 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Phone</th>
-                <th>Subject</th>
-                <th>Experience</th>
-                <th>Amallar</th>
+                <th>Class name</th>
+                <th>Teacher id</th>
+                 <th>Amallar</th>
             </tr>
         </thead>
 
         <tbody>
-					 <?php foreach($teachers as $item) : ?>
+					 <?php foreach($classes as $item) : ?>
             <tr>
                 <td><?= $cnt++; ?></td>
-                <td><?= $item['first_name'] ?></td>
-                <td><?= $item['last_name'] ?></td>
-                <td><?= $item['age'] ?></td>
-                <td><?= $item['phone'] ?></td></td>
-                <td><?= $item['subject'] ?></td>
-                <td><?= $item['experience'] ?></td>
+                <td><?= $item['class_name'] ?></td>
+                <td><?= $item['first_name']." ". $item['last_name'] ?></td>
+                
                 <td>
                     <a href="show.php?id=<?= $item['id'] ?>" class="btn view">Ko‘rish</a>
                     <a href="edit.php?id=<?= $item['id'] ?>" class="btn edit">Tahrirlash</a>
@@ -159,36 +154,7 @@
                 </td>
             </tr>
 						 <?php endforeach ?>
-<!-- 
-            <tr>
-                <td>2</td>
-                <td>Ali</td>
-                <td>Karimov</td>
-                <td>28</td>
-                <td>+998 91 765 43 21</td>
-                <td>Fizika</td>
-                <td>5 yil</td>
-                <td>
-                    <a href="#" class="btn view">Ko‘rish</a>
-                    <a href="#" class="btn edit">Tahrirlash</a>
-                    <a href="#" class="btn delete">O‘chirish</a>
-                </td>
-            </tr> -->
 
-            <!-- <tr>
-                <td>3</td>
-                <td>Malika</td>
-                <td>Ismoilova</td>
-                <td>32</td>
-                <td>+998 93 222 11 00</td>
-                <td>Ingliz tili</td>
-                <td>10 yil</td>
-                <td>
-                    <a href="#" class="btn view">Ko‘rish</a>
-                    <a href="#" class="btn edit">Tahrirlash</a>
-                    <a href="#" class="btn delete">O‘chirish</a>
-                </td>
-            </tr> -->
         </tbody>
     </table>
 </div>
