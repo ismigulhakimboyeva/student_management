@@ -139,7 +139,7 @@
             </tr>
         </thead>
 
-        <tbody>
+       <tbody>
 					 <?php foreach($classes as $item) : ?>
             <tr>
                 <td><?= $cnt++; ?></td>
@@ -155,7 +155,7 @@
             </tr>
 						 <?php endforeach ?>
 
-        </tbody>
+        </tbody> 
     </table>
 </div>
 

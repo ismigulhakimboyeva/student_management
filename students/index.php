@@ -1,7 +1,12 @@
 <?php
 	include '../config/db.php';
 	//query - so'rov
-	$sql = "SELECT * FROM students";
+	
+	
+	 $sql = "SELECT  s.id, s.first_name, s.last_name, s.age,  c.class_name , s.phone, s.adress FROM students s
+    INNER JOIN classes c
+    On s.class_id = c.id";
+
 
 	//tayyorlash
 	$data = $conn->prepare($sql);
@@ -153,6 +158,7 @@ th {
                 <td><?= $item['class_name'] ?></td>
                 <td><?= $item['phone'] ?></td>
                 <td><?= $item['adress'] ?></td>
+                 
                 <td>
                     <a href="show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a>
                     <a href="edit.php?id=<?=$item['id'];?>" class="edit">Tahrirlash</a>

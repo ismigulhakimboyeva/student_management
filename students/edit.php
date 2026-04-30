@@ -29,10 +29,10 @@ $students = $data->fetch(PDO::FETCH_ASSOC);
         <input type="text" name="last_name" required  value="<?=$students['last_name'] ?>">
         <input type="number" name="age" required value="<?=$students['age'] ?>">
 
-        <input type="text" name="class_name" required value="<?=$students['class_name'] ?>">
         <input type="text" name="phone" required value="<?=$students['phone'] ?>">
 
         <input type="text" name="adress" required value="<?=$students['adress'] ?>">
+        <input type="text" name="class_id" required value="<?=$students['class_id'] ?>">
 
         <button type="submit">Saqlash</button>
     </form>

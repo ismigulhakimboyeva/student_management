@@ -4,17 +4,17 @@ $id=$_POST['id'];
 $first_name=$_POST['first_name'];
 $last_name=$_POST['last_name'];
 $age=$_POST['age'];
-$class_name=$_POST['class_name'];
 $phone=$_POST['phone'];
 $adress=$_POST['adress'];
+$class_id=$_POST['class_id'];
 
 	$sql = "UPDATE students
 		SET first_name = ?,
 			last_name = ?,
 			age = ?,
-			class_name = ?,
 			phone = ?,
-			adress = ?
+			adress = ?,
+			class_id = ?
 		WHERE id = ?";
 
 	$data = $conn->prepare($sql);
@@ -22,9 +22,9 @@ $adress=$_POST['adress'];
 		$first_name, 
 		$last_name,
 		$age,
-		$class_name,
 		$phone,
 		$adress,
+		$class_id,
 		$id
 	]);
 	header("Location: index.php");

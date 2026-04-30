@@ -3,6 +3,7 @@ include "../config/db.php";
  // id ni olish
  $id = $_GET['id'];
 
+
  // delate query
  $sql = "DELETE FROM teachers WHERE 	id = :id";
 
@@ -10,6 +11,7 @@ include "../config/db.php";
  $data = $conn->prepare($sql);
 
  // bajarish
+  var_dump($data->execute([':id'=>$id])); exit;
  $data->execute([':id'=>$id]);
 
  //qaytarish

@@ -68,6 +68,7 @@
         }
 
         .content h1 {
+    
             font-size: 38px;
             margin-bottom: 10px;
         }

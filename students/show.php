@@ -103,12 +103,7 @@ $student = $data->fetch();
         <span class="label">Yosh:</span>
        <?= $student['age']; ?>
     </div>
-
-    <div class="info clearfix">
-        <span class="label">Sinf:</span>
-        <?= $student['class_name']; ?>
-    </div>
-
+    
     <div class="info clearfix">
         <span class="label">Telefon:</span>
         <?= $student['phone']; ?>
@@ -117,6 +112,11 @@ $student = $data->fetch();
     <div class="info clearfix">
         <span class="label">Manzil:</span>
        <?= $student['adress']; ?>
+    </div>
+    
+    <div class="info clearfix">
+        <span class="label">Sinf:</span>
+        <?= $student['class_id']; ?>
     </div>
 
     <a href="index.php" class="btn">Ortga</a>
