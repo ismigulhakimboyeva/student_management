@@ -8,6 +8,14 @@ $data = $conn->prepare($sql);
 $data->execute([':id'=>$id]);
 
 $students = $data->fetch(PDO::FETCH_ASSOC);
+//**** 
+
+$sql = "SELECT * FROM classes";
+$class = $conn->prepare($sql);
+$class->execute();
+
+$classes_list = $class->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="uz">
@@ -32,7 +40,13 @@ $students = $data->fetch(PDO::FETCH_ASSOC);
         <input type="text" name="phone" required value="<?=$students['phone'] ?>">
 
         <input type="text" name="adress" required value="<?=$students['adress'] ?>">
-        <input type="text" name="class_id" required value="<?=$students['class_id'] ?>">
+        <!-- <input type="text" name="class_id" required value="<?=$students['class_id'] ?>"> -->
+           <select name="class_id" id="">
+                <?php foreach($classes_list as $classes) : ?>
+                     <option value="<?= $classes['id'] ?>" <?= ($students['class_id'] == $classes['id']) ? "selected" : "" ?>  ><?= $classes['class_name'] ?>  </option> 
+                <?php endforeach  ?>
+            </select>
+
 
         <button type="submit">Saqlash</button>
     </form>
