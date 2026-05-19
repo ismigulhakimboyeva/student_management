@@ -5,7 +5,7 @@ include "../config/db.php";
 
 
  // delate query
- $sql = "DELETE FROM books WHERE 	id = :id";
+ $sql = "DELETE FROM orders WHERE 	id = :id";
 
  // tayyorlash
  $data = $conn->prepare($sql);

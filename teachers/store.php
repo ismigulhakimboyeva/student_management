@@ -23,4 +23,3 @@ $sql = "INSERT INTO teachers (first_name, last_name, age,  phone, subject, exper
 	header("Location: index.php");
 ?>
 
-?>

@@ -1,8 +1,21 @@
+<?php include '../config/db.php';
+
+$sql = "SELECT * FROM books";
+$data = $conn->prepare($sql);
+$data->execute();
+
+$books = $data->fetchAll(PDO::FETCH_ASSOC);
+// and
+$order_id = $_GET['order_id'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <title>Student Qo‘shish</title>
+    <title>Order Items </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,7 +31,7 @@
             background: white;
             padding: 30px;
             border-radius: 20px;
-            width: 600px;
+            width: 400px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
@@ -68,45 +81,44 @@
 <body>
 
 <div class="form-container">
-    <h2>Kitob Qo‘shish</h2>
+    <h2>+ Order Items </h2>
 
     <form action ="store.php" method="POST">
 
         <div class="input-group">
-            <label>Book Name</label>
-            <input type="text" name = "book_name" placeholder="Nomini kiriting">
+            <label>Book Id</label>
+            <!-- <input type="#" name = "book_id" placeholder="Book ID  kiriting"> -->
+            	<select name="book_id" id="">
+                 <?php foreach($books as $item) : ?>
+                     <option value="<?= $item['id'] ?>"><?= $item['book_name'] ?> </option> 
+                <?php endforeach  ?>
+            </select>
         </div>
 
         <div class="input-group">
-            <label>Author</label>
-            <input type="text" name = "author" placeholder="Authorni kiriting">
+            <input type="hidden" value="<?= $order_id ?>" name = "order_id" placeholder="Order Id kiriting">
         </div>
 
         <div class="input-group">
-            <label>Notes</label>
-            <input type="text" name = "notes" placeholder="Note kiriting">
+            <label>From Date</label>
+            <input type="date" name = "from_date" placeholder="From Date ">
         </div>
 
         <div class="input-group">
-            <label>Pages</label>
-            <input type="text" name = "pages" placeholder="0000">
+            <label>To Date</label>
+            <input type="date" name = "to_date" placeholder="To Date">
         </div>
-          <div class="input-group">
-            <label>date_of_publication</label>
-            <input type="date" name = "date_of_publication" placeholder="0000">
-        </div>
-
-
-
+<!-- 
         <div class="input-group">
-            <label>Row_numb</label>
-            <input type="text" name = "row_numb" placeholder="Qatorni kiriting">
+            <label>Status</label>
+            <input type="#" name = "status" placeholder="Status">
         </div>
 
         <div class="input-group">
-            <label>Book_number</label>
-            <input type="text" name = "book_number" placeholder="Raqamini kiriting">
+            <label>In Take Date</label>
+            <input type="#" name = "intake_date" placeholder="In Take Date">
         </div>
+         -->
 
         <button type="submit">Qo‘shish</button>
     </form>

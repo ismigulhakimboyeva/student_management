@@ -5,15 +5,21 @@ include "../config/db.php";
 
 
  // delate query
- $sql = "DELETE FROM books WHERE 	id = :id";
+ $sql = "DELETE FROM order_items WHERE 	id = :id";
 
  // tayyorlash
  $data = $conn->prepare($sql);
 
  // bajarish
+ 
  $data->execute([':id'=>$id]);
 
  //qaytarish
- header("Location: index.php");
+ header("Location:  ../orders/show.php?id=$order_id");
  exit;
  ?>
+
+
+
+
+

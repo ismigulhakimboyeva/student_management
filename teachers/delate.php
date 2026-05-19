@@ -11,7 +11,7 @@ include "../config/db.php";
  $data = $conn->prepare($sql);
 
  // bajarish
-  var_dump($data->execute([':id'=>$id])); exit;
+
  $data->execute([':id'=>$id]);
 
  //qaytarish

@@ -33,7 +33,7 @@ $teachers_list = $teacher->fetchAll(PDO::FETCH_ASSOC);
     <form action="update.php" method="POST">
 			<input type="hidden" name="id" value="<?=$classes['id'] ?>" >
         <input type="text" name="class_name" required value="<?=$classes['class_name'] ?>" >
-        <!-- <input type="text" name="teacher_id" required  value="<?=$classes['teacher_id'] ?>"> -->
+         <input type="text" name="teacher_id" required  value="<?=$classes['teacher_id'] ?>"> 
        
 
             <select name="teacher_id" id="">
