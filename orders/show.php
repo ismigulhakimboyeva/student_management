@@ -8,7 +8,7 @@ $data->execute([$id]);
 $orders = $data->fetch();
 //and 
 //  $id = $_GET['id'];
-$sql = "SELECT ot.id, ot.from_date, ot.to_date, b.book_name FROM order_items ot
+$sql = "SELECT ot.id, ot.from_date, ot.to_date, b.book_name, ot.order_id FROM order_items ot
 LEFT JOIN  books b
  ON ot.book_id=b.id
 WHERE ot.order_id = ?";
@@ -151,13 +151,13 @@ $order_list = $data->fetchAll();
             <td><?= $item['from_date'] ?></td>
             <td><?= $item['to_date'] ?></td>
             <td>
-                  <a href="../order_items/show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a>
+                  <!-- <a href="../order_items/show.php?id=<?= $item['id'] ?>" class="view">Ko‘rish</a> -->
 
-                <a href="../order_items/edit.php?id=<?= $item['id'] ?>" class="edit">
+                <a href="../order_items/edit.php?id=<?= $item['id'] ?>  "class="edit">
                     Tahrirlash
                 </a>
 
-                <a href="../order_items/delete.php?id=<?= $item['id'] ?>"
+                <a href="../order_items/delate.php?id=<?= $item['id']?>&order_id=<?= $item['order_id'] ?>"
                    onclick="return confirm('O‘chirasizmi?')" class="delete">
                     O‘chirish
                 </a>

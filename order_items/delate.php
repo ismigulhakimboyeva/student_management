@@ -2,6 +2,7 @@
 include "../config/db.php";
  // id ni olish
  $id = $_GET['id'];
+ $order_id=$_GET["order_id"];
 
 
  // delate query

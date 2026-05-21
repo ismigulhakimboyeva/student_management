@@ -12,7 +12,7 @@
 	
 	$orders = $data->fetchAll(PDO::FETCH_ASSOC);
 
-	
+
     $cnt = 1;
 ?>
 
